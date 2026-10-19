@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matriz de Leopold - Evaluación de Impacto Ambiental</title>
+    <style>
+        :root {
+            --primary-color: #1e3a8a;
+            --secondary-color: #0d9488;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-color: #334155;
+            --heading-color: #0f172a;
+            --accent-color: #e0f2fe;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 3rem 1rem;
+            text-align: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-top: 0.5rem;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
+        section {
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+            margin-top: 0;
+        }
+
+        h3 {
+            color: var(--secondary-color);
+        }
+
+        ul, ol {
+            padding-left: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .card {
+            background: #f1f5f9;
+            padding: 1.5rem;
+            border-radius: 6px;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .matrix-example {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 1rem;
+            text-align: center;
+        }
+
+        .matrix-example td, .matrix-example th {
+            border: 1px solid #cbd5e1;
+            padding: 12px;
+        }
+
+        .matrix-example th {
+            background-color: var(--accent-color);
+            color: var(--heading-color);
+        }
+
+        .cell-value {
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .cell-sub {
+            font-size: 0.85rem;
+            color: #64748b;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background-color: #0f172a;
+            color: white;
+            margin-top: 3rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Matriz de Leopold</h1>
+        <p>Método de Evaluación de Impacto Ambiental (EIA)</p>
+    </header>
+
+    <div class="container">
+
+        <!-- INTRODUCCIÓN METODOLÓGICA -->
+        <section id="introduccion">
+            <h2>1. Introducción Metodológica</h2>
+            <p>La <strong>Matriz de Leopold</strong> es un método cualitativo de evaluación de impacto ambiental desarrollado en 1971 por el Servicio Geológico de los Estados Unidos (USGS) bajo la dirección de Luna B. Leopold.</p>
+            <p>Es una matriz de doble entrada diseñada para identificar y priorizar las relaciones causa-efecto entre las acciones de un proyecto y los factores ambientales del entorno:</p>
+            <ul>
+                <li><strong>Columnas (100 acciones):</strong> Representan las actividades del proyecto que pueden causar un impacto ambiental (ej. excavación, transporte, disposición de desechos).</li>
+                <li><strong>Filas (88 factores ambientales):</strong> Representan los elementos del medio físico, biológico y socioeconómico susceptibles a alteración (ej. calidad del aire, suelo, flora, fauna).</li>
+            </ul>
+        </section>
+
+        <!-- MAGNITUD E IMPORTANCIA -->
+        <section id="magnitud-importancia">
+            <h2>2. Magnitud e Importancia</h2>
+            <p>En cada casilla intersecada de la matriz donde se prevea un impacto, se asignan dos valores numéricos comprendidos en una escala del <strong>1 al 10</strong>:</p>
+            
+            <div class="grid-container">
+                <div class="card">
+                    <h3>Magnitud (M)</h3>
+                    <p>Mide la <strong>extensión o escala física</strong> del impacto sobre el factor ambiental.</p>
+                    <ul>
+                        <li>Va precedido de un signo <strong>positivo (+)</strong> si el impacto es beneficioso o <strong>negativo (-)</strong> si es perjudicial.</li>
+                        <li><strong>1:</strong> Alteración mínima/localizada.</li>
+                        <li><strong>10:</strong> Alteración máxima/extensa.</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Importancia (I)</h3>
+                    <p>Mide la <strong>ponderación o relevancia relativa</strong> del impacto según su significancia, duración o reversibilidad.</p>
+                    <ul>
+                        <li>Su valor siempre es <strong>positivo</strong> (escala de 1 a 10).</li>
+                        <li><strong>1:</strong> Impacto de baja significancia o de corta duración.</li>
+                        <li><strong>10:</strong> Impacto crítico, irreversible o de relevancia regional/global.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- CÓMO LLENAR LA MATRIZ -->
+        <section id="como-llenar">
+            <h2>3. ¿Cómo llenar la matriz?</h2>
+            <ol>
+                <li><strong>Identificación de Acciones:</strong> Seleccionar en las columnas las actividades específicas que se llevarán a cabo en las distintas fases del proyecto (construcción, operación, abandono).</li>
+                <li><strong>Identificación de Factores Ambientales:</strong> Seleccionar en las filas los elementos del entorno que podrían verse modificados.</li>
+                <li><strong>Identificación de Interacciones:</strong> Marcar con una diagonal (/) aquellas casillas donde exista una relación causa-efecto directa entre una acción y un factor.</li>
+                <li><strong>Asignación de Valores:</strong> Para cada casilla marcada, colocar:
+                    <ul>
+                        <li>En la parte <strong>superior izquierda</strong>: la Magnitud (M).</li>
+                        <li>En la parte <strong>inferior derecha</strong>: la Importancia (I).</li>
+                    </ul>
+                </li>
+            </ol>
+
+            <h3>Ejemplo de Casilla de Evaluación:</h3>
+            <table class="matrix-example">
+                <tr>
+                    <th>Acción del Proyecto</th>
+                    <th>Factor Ambiental</th>
+                    <th>Puntuación (M / I)</th>
+                </tr>
+                <tr>
+                    <td>Movimiento de tierras</td>
+                    <td>Calidad del Aire (Polvo)</td>
+                    <td>
+                        <span class="cell-value">-6 / 4</span><br>
+                        <span class="cell-sub">(Magnitud: -6 | Importancia: 4)</span>
+                    </td>
+                </tr>
+            </table>
+        </section>
+
+        <!-- CÓMO VALORAR -->
+        <section id="como-valorar">
+            <h2>4. ¿Cómo valorar los resultados?</h2>
+            <p>Una vez completadas todas las casillas de interacción, el análisis cualitativo y cuantitativo se realiza sumando y evaluando las puntuaciones:</p>
+            <ul>
+                <li><strong>Suma por Filas (Factores Ambientales):</strong> Permite identificar cuáles factores ambientales sufren la mayor degradación acumulada o se benefician en mayor medida.</li>
+                <li><strong>Suma por Columnas (Acciones):</strong> Permite determinar cuáles actividades del proyecto generan los mayores impactos globales o negativos.</li>
+                <li><strong>Puntuación Total:</strong> Proporciona un índice global del proyecto para comparar alternativas tecnológicamente viables o de localización.</li>
+                <li><strong>Identificación de Impactos Críticos:</strong> Las casillas con valores elevados de magnitud e importancia (ej. -8/9 o -9/10) señalan áreas de atención prioritaria para la aplicación de medidas de mitigación o prevención.</li>
+            </ul>
+        </section>
+
+        <!-- VENTAJAS Y LIMITACIONES -->
+        <section id="ventajas-limitaciones">
+            <h2>5. Ventajas y Limitaciones</h2>
+            <div class="grid-container">
+                <div class="card">
+                    <h3>Ventajas</h3>
+                    <ul>
+                        <li>Proporciona una visión global y sintética de las interacciones causa-efecto.</li>
+                        <li>Permite una primera aproximación cualitativa rápida y estructurada.</li>
+                        <li>Es útil para comparar alternativas de diseño o ubicación de un proyecto.</li>
+                        <li>Facilita la identificación temprana de medidas de mitigación requeridas.</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Limitaciones</h3>
+                    <ul>
+                        <li>Contiene un alto grado de subjetividad en la asignación de la puntuación.</li>
+                        <li>No considera interacciones secundarias o impactos indirectos a largo plazo.</li>
+                        <li>No toma en cuenta la variable temporal ni la dinámica continua de los ecosistemas.</li>
+                        <li>Las sumas numéricas no siempre reflejan de forma realista la severidad de un impacto.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 - Guía Metodológica de la Matriz de Leopold | Ingeniería Ambiental</p>
+    </footer>
+
+</body>
+</html>
